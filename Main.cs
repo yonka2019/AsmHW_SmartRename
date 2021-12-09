@@ -63,7 +63,10 @@ namespace AsmHW_SmartRename
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 string file = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-                System.IO.File.Move(file, $"{Path.GetDirectoryName(file)}\\{lastHW}_{first_name}_{last_name}{Path.GetExtension(file)}");
+                if (Path.GetExtension(file) == ".zip")
+                    System.IO.File.Move(file, $"{Path.GetDirectoryName(file)}\\{lastHW}_{first_name}_{last_name}.zip");
+                else
+                    MessageBox.Show("The given file doesn't have .zip extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
