@@ -6,37 +6,55 @@ using System.Windows.Forms;
 
 namespace AsmHW_SmartRename
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
+        private const string first_name = "Yonatan";
+        private const string last_name = "Zheleznyakov";
+
         private const string hw_path = @"D:\Magshimim\Magshimim-Assembly";
         private const string hw_number_pattern = @"^Lesson(\d+)$";
         private static Regex hw_number_regex = new Regex(hw_number_pattern);
 
-        public Main()
+        private readonly string lastHW;
+
+        public MainForm()
         {
             InitializeComponent();
-            GetLastHW();
+            lastHW = GetLastHW;
         }
-        private void GetLastHW()
+        private string GetLastHW
         {
-            int hw_num;
+            get
+            {
+                string lasthw = null;
+                Match mc;
+                string[] _hw_folders = Directory.GetDirectories(hw_path);
+                List<string> hw_folders = new List<string>();
+                hw_folders.AddRange(_hw_folders);
 
-            string[] _hw_folders = Directory.GetDirectories(hw_path);
-            List<string> hw_folders = new List<string>();
-            hw_folders.AddRange(_hw_folders);
-            string[] sorted = hw_folders
-                            .OrderBy(folderPath => hw_number_regex.Matches(Path.GetFileName(folderPath))[0].Value)
-                            .ToArray();
+                List<string> sorted = hw_folders
+                                .OrderBy(folderPath => GetFolder(ref hw_folders, folderPath)).ToList();
 
+                mc = hw_number_regex.Match(Path.GetFileName(sorted[sorted.Count - 1]));
+
+                if (mc != null)
+                    lasthw = mc.Groups[1].Value;
+
+                return lasthw;
+
+            }
         }
-        public static string GetFolder(string input)
+        public static string GetFolder(ref List<string> hw_folders, string input)
         {
-            MatchCollection mc = hw_number_regex.Matches(input);
+            MatchCollection mc = hw_number_regex.Matches(Path.GetFileName(input));
 
             if (mc.Count != 0)
                 return mc[0].Value;
             else
-                return "Lesson0";
+            {
+                hw_folders.Remove(input);
+                return "0";
+            }
 
         }
 
@@ -44,8 +62,8 @@ namespace AsmHW_SmartRename
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
-                string file = e.Data.GetData(DataFormats.FileDrop) as string;
-
+                string file = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+                System.IO.File.Move(file, $"{Path.GetDirectoryName(file)}\\{lastHW}_{first_name}_{last_name}{Path.GetExtension(file)}");
             }
         }
 

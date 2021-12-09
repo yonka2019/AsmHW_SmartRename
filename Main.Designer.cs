@@ -1,6 +1,6 @@
 ﻿namespace AsmHW_SmartRename
 {
-    partial class Main
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -35,6 +35,7 @@
             // 
             // MainPanel
             // 
+            this.MainPanel.AllowDrop = true;
             this.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MainPanel.Controls.Add(this.label1);
             this.MainPanel.Location = new System.Drawing.Point(12, 12);
@@ -53,14 +54,18 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Drag and drop the .zip file to rename";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(252, 167);
             this.Controls.Add(this.MainPanel);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
+            this.Text = "Smart HW Rename";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainPanel_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainPanel_DragEnter);
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
             this.ResumeLayout(false);
