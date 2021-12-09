@@ -63,7 +63,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Smart HW Rename";
+            this.Text = "Smart Rename";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainPanel_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainPanel_DragEnter);
             this.MainPanel.ResumeLayout(false);
