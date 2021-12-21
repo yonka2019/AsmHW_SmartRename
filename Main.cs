@@ -9,29 +9,29 @@ namespace AsmHW_SmartRename
     public partial class MainForm : Form
     {
         private static readonly Regex hw_number_regex = new Regex(Properties.Settings.Default.FoldersPattern);
-        private readonly string lastHW;
 
         public MainForm()
         {
             InitializeComponent();
-            lastHW = GetLastHW;
         }
         private string GetLastHW
         {
             get
             {
                 string lasthw = null;
-                Match mc;
+                Match mc = null;
                 string[] _hw_folders = Directory.GetDirectories(Properties.Settings.Default.HWPath);
                 List<string> hw_folders = new List<string>();
+
                 hw_folders.AddRange(_hw_folders);
 
                 List<string> sorted = hw_folders
                                 .OrderBy(folderPath => GetFolder(ref hw_folders, folderPath)).ToList();
 
                 mc = hw_number_regex.Match(Path.GetFileName(sorted[sorted.Count - 1]));
-
-                if (mc != null)
+                if (mc.Groups[1].Value.Length == 0)
+                    MessageBox.Show("Is the HW folder and the folders pattern correct?", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
                     lasthw = mc.Groups[1].Value;
 
                 return lasthw;
@@ -57,7 +57,7 @@ namespace AsmHW_SmartRename
             {
                 string file = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
                 if (Path.GetExtension(file) == ".zip")
-                    File.Move(file, $"{Path.GetDirectoryName(file)}\\{lastHW}_{Properties.Settings.Default.FirstName}_{Properties.Settings.Default.LastName}.zip");
+                    File.Move(file, $"{Path.GetDirectoryName(file)}\\{GetLastHW}_{Properties.Settings.Default.FirstName}_{Properties.Settings.Default.LastName}.zip");
                 else
                     MessageBox.Show("The given file doesn't have .zip extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

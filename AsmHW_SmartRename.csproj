@@ -93,7 +93,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\icons8_setti14ngs.ico" />
+    <Content Include="Resources\folder_20px.png" />
+    <Content Include="Resources\settings_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

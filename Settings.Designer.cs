@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.FirstNameTB = new System.Windows.Forms.TextBox();
             this.FirstNameLabel = new System.Windows.Forms.Label();
@@ -38,14 +39,17 @@
             this.FoldersPatternLabel = new System.Windows.Forms.Label();
             this.FoldersPatternTB = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.FBD = new System.Windows.Forms.FolderBrowserDialog();
+            this.FBDButton = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // FirstNameTB
             // 
-            this.FirstNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FirstNameTB.Location = new System.Drawing.Point(210, 21);
+            this.FirstNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FirstNameTB.Location = new System.Drawing.Point(210, 22);
             this.FirstNameTB.Name = "FirstNameTB";
-            this.FirstNameTB.Size = new System.Drawing.Size(279, 26);
+            this.FirstNameTB.Size = new System.Drawing.Size(279, 21);
             this.FirstNameTB.TabIndex = 0;
             // 
             // FirstNameLabel
@@ -70,10 +74,10 @@
             // 
             // HWPathTB
             // 
-            this.HWPathTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.HWPathTB.Location = new System.Drawing.Point(210, 83);
+            this.HWPathTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.HWPathTB.Location = new System.Drawing.Point(210, 84);
             this.HWPathTB.Name = "HWPathTB";
-            this.HWPathTB.Size = new System.Drawing.Size(279, 26);
+            this.HWPathTB.Size = new System.Drawing.Size(279, 21);
             this.HWPathTB.TabIndex = 2;
             // 
             // LastNameLabel
@@ -88,10 +92,10 @@
             // 
             // LastNameTB
             // 
-            this.LastNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LastNameTB.Location = new System.Drawing.Point(210, 51);
+            this.LastNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LastNameTB.Location = new System.Drawing.Point(210, 52);
             this.LastNameTB.Name = "LastNameTB";
-            this.LastNameTB.Size = new System.Drawing.Size(279, 26);
+            this.LastNameTB.Size = new System.Drawing.Size(279, 21);
             this.LastNameTB.TabIndex = 4;
             // 
             // FoldersPatternLabel
@@ -106,10 +110,10 @@
             // 
             // FoldersPatternTB
             // 
-            this.FoldersPatternTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FoldersPatternTB.Location = new System.Drawing.Point(210, 115);
+            this.FoldersPatternTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FoldersPatternTB.Location = new System.Drawing.Point(210, 116);
             this.FoldersPatternTB.Name = "FoldersPatternTB";
-            this.FoldersPatternTB.Size = new System.Drawing.Size(279, 26);
+            this.FoldersPatternTB.Size = new System.Drawing.Size(279, 21);
             this.FoldersPatternTB.TabIndex = 6;
             // 
             // SaveButton
@@ -122,11 +126,23 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // FBDButton
+            // 
+            this.FBDButton.Image = global::AsmHW_SmartRename.Properties.Resources.folder_20px;
+            this.FBDButton.Location = new System.Drawing.Point(495, 82);
+            this.FBDButton.Name = "FBDButton";
+            this.FBDButton.Size = new System.Drawing.Size(25, 25);
+            this.FBDButton.TabIndex = 9;
+            this.toolTip.SetToolTip(this.FBDButton, "Open Folder");
+            this.FBDButton.UseVisualStyleBackColor = true;
+            this.FBDButton.Click += new System.EventHandler(this.FBDButton_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 191);
+            this.Controls.Add(this.FBDButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.FoldersPatternLabel);
             this.Controls.Add(this.FoldersPatternTB);
@@ -155,5 +171,8 @@
         private System.Windows.Forms.Label FoldersPatternLabel;
         private System.Windows.Forms.TextBox FoldersPatternTB;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.FolderBrowserDialog FBD;
+        private System.Windows.Forms.Button FBDButton;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
