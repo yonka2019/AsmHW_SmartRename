@@ -51,7 +51,6 @@ namespace AsmHW_SmartRename
             }
 
         }
-
         private void MainPanel_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -63,12 +62,12 @@ namespace AsmHW_SmartRename
                     MessageBox.Show("The given file doesn't have .zip extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void MainPanel_DragEnter(object sender, DragEventArgs e) => e.Effect = DragDropEffects.All;
 
         private void SettingsButton_Click(object sender, System.EventArgs e)
         {
-
+            Settings form = new Settings();
+            form.Show();
         }
     }
 }

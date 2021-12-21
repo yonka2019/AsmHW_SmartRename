@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="FirstName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Yonatan</Value>
     </Setting>
     <Setting Name="LastName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Zheleznyakov</Value>
     </Setting>
     <Setting Name="HWPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">D:\Magshimim\Magshimim-Assembly</Value>
     </Setting>
     <Setting Name="FoldersPattern" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">^Lesson(\d+)$</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -25,7 +25,7 @@ namespace AsmHW_SmartRename.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Yonatan")]
         public string FirstName {
             get {
                 return ((string)(this["FirstName"]));
@@ -37,7 +37,7 @@ namespace AsmHW_SmartRename.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Zheleznyakov")]
         public string LastName {
             get {
                 return ((string)(this["LastName"]));
@@ -49,7 +49,7 @@ namespace AsmHW_SmartRename.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Magshimim\\Magshimim-Assembly")]
         public string HWPath {
             get {
                 return ((string)(this["HWPath"]));
@@ -61,7 +61,7 @@ namespace AsmHW_SmartRename.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("^Lesson(\\d+)$")]
         public string FoldersPattern {
             get {
                 return ((string)(this["FoldersPattern"]));
