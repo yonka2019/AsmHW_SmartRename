@@ -8,13 +8,7 @@ namespace AsmHW_SmartRename
 {
     public partial class MainForm : Form
     {
-        private const string first_name = "Yonatan";
-        private const string last_name = "Zheleznyakov";
-
-        private const string hw_path = @"D:\Magshimim\Magshimim-Assembly";
-        private const string hw_number_pattern = @"^Lesson(\d+)$";
-        private static Regex hw_number_regex = new Regex(hw_number_pattern);
-
+        private static readonly Regex hw_number_regex = new Regex(Properties.Settings.Default.FoldersPattern);
         private readonly string lastHW;
 
         public MainForm()
@@ -28,7 +22,7 @@ namespace AsmHW_SmartRename
             {
                 string lasthw = null;
                 Match mc;
-                string[] _hw_folders = Directory.GetDirectories(hw_path);
+                string[] _hw_folders = Directory.GetDirectories(Properties.Settings.Default.HWPath);
                 List<string> hw_folders = new List<string>();
                 hw_folders.AddRange(_hw_folders);
 
@@ -64,7 +58,7 @@ namespace AsmHW_SmartRename
             {
                 string file = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
                 if (Path.GetExtension(file) == ".zip")
-                    System.IO.File.Move(file, $"{Path.GetDirectoryName(file)}\\{lastHW}_{first_name}_{last_name}.zip");
+                    System.IO.File.Move(file, $"{Path.GetDirectoryName(file)}\\{lastHW}_{Properties.Settings.Default.FirstName}_{Properties.Settings.Default.LastName}.zip");
                 else
                     MessageBox.Show("The given file doesn't have .zip extension", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -72,5 +66,9 @@ namespace AsmHW_SmartRename
 
         private void MainPanel_DragEnter(object sender, DragEventArgs e) => e.Effect = DragDropEffects.All;
 
+        private void SettingsButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
